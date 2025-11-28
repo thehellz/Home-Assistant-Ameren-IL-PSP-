@@ -1,61 +1,6 @@
   - resource: 'https://www.ameren.com/api/ameren/promotion/RtpHourlyPricesbyDate'
     name: 'Ameren PSP'
     method: POST
-    payload: '{"SelectedDate":"{{ now().year }}-{{ now().month }}-{{ now().day }}"}' 
-    headers:
-      Content-Type : application/json
-    scan_interval: 3600
-    log_response: true
-    sensor:
-      - name: PSP 0000
-        unique_id: psp_0000
-        value_template: '{{ value_json.hourlyPriceDetails[0].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0100
-        unique_id: psp_0100
-        value_template: '{{ value_json.hourlyPriceDetails[1].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0200
-        unique_id: psp_0200
-        value_template: '{{ value_json.hourlyPriceDetails[2].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0300
-        unique_id: psp_0300
-        value_template: '{{ value_json.hourlyPriceDetails[3].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0400
-        unique_id: psp_0400
-        value_template: '{{ value_json.hourlyPriceDetails[4].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0500
-        unique_id: psp_0500
-        value_template: '{{ value_json.hourlyPriceDetails[5].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0600
-        unique_id: psp_0600
-        value_template: '{{ value_json.hourlyPriceDetails[6].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0700
-        unique_id: psp_0700
-        value_template: '{{ value_json.hourlyPriceDetails[7].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0800
-        unique_id: psp_0800
-        value_template: '{{ value_json.hourlyPriceDetails[8].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 0900
-        unique_id: psp_0900
-        value_template: '{{ value_json.hourlyPriceDetails[9].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 1000
-        unique_id: psp_1000
-        value_template: '{{ value_json.hourlyPriceDetails[10].price }}'
-        unit_of_measurement: "USD/kWh"
-      - name: PSP 1100
-        unique_id: psp_1100
-  - resource: 'https://www.ameren.com/api/ameren/promotion/RtpHourlyPricesbyDate'
-    name: 'Ameren PSP'
-    method: POST
     payload: '{"SelectedDate":"{{ now().year }}-{{ now().month }}-{{ now().day}}"}' 
     headers:
       Content-Type : application/json
@@ -269,4 +214,5 @@
         value_template: '{{ value_json.hourlyPriceDetails[23].price }}'
         unit_of_measurement: "USD/kWh" 
  
+
 
