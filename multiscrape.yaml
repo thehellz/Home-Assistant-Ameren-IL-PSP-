@@ -53,6 +53,61 @@
         unit_of_measurement: "USD/kWh"
       - name: PSP 1100
         unique_id: psp_1100
+  - resource: 'https://www.ameren.com/api/ameren/promotion/RtpHourlyPricesbyDate'
+    name: 'Ameren PSP'
+    method: POST
+    payload: '{"SelectedDate":"{{ now().year }}-{{ now().month }}-{{ now().day}}"}' 
+    headers:
+      Content-Type : application/json
+    scan_interval: 1800
+    log_response: true
+    sensor:
+      - name: PSP 0000
+        unique_id: psp_0000
+        value_template: '{{ value_json.hourlyPriceDetails[0].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0100
+        unique_id: psp_0100
+        value_template: '{{ value_json.hourlyPriceDetails[1].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0200
+        unique_id: psp_0200
+        value_template: '{{ value_json.hourlyPriceDetails[2].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0300
+        unique_id: psp_0300
+        value_template: '{{ value_json.hourlyPriceDetails[3].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0400
+        unique_id: psp_0400
+        value_template: '{{ value_json.hourlyPriceDetails[4].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0500
+        unique_id: psp_0500
+        value_template: '{{ value_json.hourlyPriceDetails[5].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0600
+        unique_id: psp_0600
+        value_template: '{{ value_json.hourlyPriceDetails[6].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0700
+        unique_id: psp_0700
+        value_template: '{{ value_json.hourlyPriceDetails[7].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0800
+        unique_id: psp_0800
+        value_template: '{{ value_json.hourlyPriceDetails[8].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0900
+        unique_id: psp_0900
+        value_template: '{{ value_json.hourlyPriceDetails[9].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1000
+        unique_id: psp_1000
+        value_template: '{{ value_json.hourlyPriceDetails[10].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1100
+        unique_id: psp_1100
         value_template: '{{ value_json.hourlyPriceDetails[11].price }}'
         unit_of_measurement: "USD/kWh"
       - name: PSP 1200
@@ -103,3 +158,115 @@
         unique_id: psp_2300
         value_template: '{{ value_json.hourlyPriceDetails[23].price }}'
         unit_of_measurement: "USD/kWh"
+        
+        
+          
+
+  - resource: 'https://www.ameren.com/api/ameren/promotion/RtpHourlyPricesbyDate'
+
+    name: 'Ameren PSP Tomorrow'
+    method: POST
+    payload: '{"SelectedDate":"{{ now().year }}-{{ now().month }}-{{ now().day+1}}"}' 
+    headers:
+      Content-Type : application/json
+    scan_interval: 3600
+    log_response: true
+    sensor:
+      - name: PSP 0000 T
+        unique_id: psp_0000_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[0].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0100 T
+        unique_id: psp_0100_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[1].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0200 T
+        unique_id: psp_0200_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[2].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0300 T
+        unique_id: psp_0300_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[3].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0400 T
+        unique_id: psp_0400_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[4].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0500 T
+        unique_id: psp_0500_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[5].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0600 T
+        unique_id: psp_0600_tomorrow 
+        value_template: '{{ value_json.hourlyPriceDetails[6].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0700 T
+        unique_id: psp_0700_tomorroe
+        value_template: '{{ value_json.hourlyPriceDetails[7].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0800 T
+        unique_id: psp_0800_tomorrow 
+        value_template: '{{ value_json.hourlyPriceDetails[8].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 0900 T
+        unique_id: psp_0900_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[9].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1000 T
+        unique_id: psp_1000_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[10].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1100 T
+        unique_id: psp_1100_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[11].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1200 T
+        unique_id: psp_1200_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[12].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1300 T
+        unique_id: psp_1300_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[13].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1400 T
+        unique_id: psp_1400_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[14].price }}'
+        unit_of_measurement: "USD/KWh"
+      - name: PSP 1500 T
+        unique_id: psp_1500_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[15].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1600 T
+        unique_id: psp_1600_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[16].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1700 T
+        unique_id: psp_1700_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[17].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1800 T
+        unique_id: psp_1800_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[18].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 1900 T
+        unique_id: psp_1900_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[19].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 2000 T
+        unique_id: psp_2000_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[20].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 2100 T
+        unique_id: psp_2100_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[21].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 2200 T
+        unique_id: psp_2200_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[22].price }}'
+        unit_of_measurement: "USD/kWh"
+      - name: PSP 2300 T
+        unique_id: psp_2300_tomorrow
+        value_template: '{{ value_json.hourlyPriceDetails[23].price }}'
+        unit_of_measurement: "USD/kWh" 
+ 
+
